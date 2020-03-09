@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻选项卡</title>
+    <style>
+        body,ul,li,a{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            background: #ccc;
+            font-size: 0;
+        }
+        /* 将单选框none掉 */
+        .wrapper input{
+            display: none;
+        }
+        .title ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .title ul li{
+            display: inline-block;
+            background: rgba(236, 36, 183, 0.3);
+            width: 145px;
+            height: 50px; 
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .title ul li:hover{
+            background: rgba(236, 36, 183, 0.6);
+            color: #f5f5f5;
+        }
+        .title ul li label{
+            display: block;
+            cursor: pointer;
+        }
+        .main{
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+        } 
+        .main div{
+            /* display: none; */
+            position: absolute;
+            height: 100%;
+            animation :rightOut 1s forwards;
+        }
+        .main img{
+            width: 600px;
+        }
+        #nav_1:checked~.main .nav_1,
+        #nav_2:checked~.main .nav_2,
+        #nav_3:checked~.main .nav_3,
+        #nav_4:checked~.main .nav_4{
+            display: block;
+            animation :leftIn 1s forwards;
+        }
+        @keyframes leftIn{
+            from{
+                transform: translateX(-100%);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        @keyframes rightOut{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(100%);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrapper">
+        <input type="radio" name="tab" id="nav_1" checked>
+        <input type="radio" name="tab" id="nav_2">
+        <input type="radio" name="tab" id="nav_3">
+        <input type="radio" name="tab" id="nav_4">
+        <!-- 要填上name="tab"，单选 -->
+        <nav class="title">
+            <ul class="nav-list">
+                <li class="nav-item"><label for="nav_1">韩国</label></li>
+                <li class="nav-item"><label for="nav_2">戏曲</label></li>
+                <li class="nav-item"><label for="nav_3">现代</label></li>
+                <li class="nav-item"><label for="nav_4">古装</label></li>
+                <!-- for="hot"是关键 -->
+            </ul>
+        </nav>
+        <div class="main">
+            <div class="nav_1">
+                <img src="./img/1.jpg" alt="">
+            </div>
+            <div class="nav_2">
+                <img src="./img/2.jpg" alt="">
+            </div>
+            <div class="nav_3">
+                <img src="./img/3.jpg" alt="">
+            </div>
+            <div class="nav_4">
+                <img src="./img/4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- <input type="radio" id="hot">
+    <div>
+        <label for="hot">asddf</label>
+    </div> -->
+    <script></script>
+</body>
+</html>
